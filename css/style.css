@@ -1,76 +1,84 @@
-/*background-color: #303030;*/
-
-body {
-    background-color: #303030;
-}
-
-.area_wrapper {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-
-#area {
-    width: 300px;
-    height: 300px;
-    background-color: rgb(168, 168, 168);
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.box {
-    width: 100px;
-    height: 100px;
-    border: 1px solid black;
-    box-sizing: border-box;
-    font-size: 34px;
-    color: brown;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-
-#modal-result-wrapper {
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    display: none;
-}
-
-#overlay {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-color: rgba(0,0,0,0.8);
-}
-
-#modal-window {
-    width: 150px;
-    height: 150px;
-    border: 1px solid black;
-    background-color: white;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50% , -50%);
-    display: flex;
-    flex-flow: column;
-    justify-content: space-between;
-    align-items: center;
-}
-
-#btn-close {
-    width: 150px;
-    height: 20px;
-    background-color: tomato;
-    color: teal;
-    text-align: center;
-    cursor: pointer;
-}
+html {
+    font-family: sans-serif; /* 1 */
+    -ms-text-size-adjust: 100%; /* 2 */
+    -webkit-text-size-adjust: 100%; /* 2 */
+    -webkit-user-select: none;
+  }
+  body {
+    margin: 0;
+    -webkit-user-select: none;
+    background-color: black
+  }
+  * {
+      font-family: 'Calibri', 'Arial', sans-serif;
+  }
+  
+  .wrapper {
+      width: 100%;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      align-content: center;
+  }
+  
+  .content {
+      display: block;
+      text-align: center;
+      margin: -70px 0 0 0;
+  }
+  
+  h1 {
+      margin: 0 0 10px 0;
+      font-size: 20px;
+      font-weight: normal;
+      color: #444;
+      letter-spacing: 5px;
+      transform: scaleY(1.5);
+  }
+  
+  #area {
+      width: 300px;
+      height: 300px;
+      /* box-sizing: border-box; */
+      display: flex;
+      flex-wrap: wrap;
+      border: 2px solid white;	
+  }
+  
+  .box {
+      width: 100px;
+      height: 100px;
+      background-color: #000000;
+      border: 2px solid white;
+      box-sizing: border-box;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 50px;
+  }
+  
+  .score {
+      font-size: 30px;
+      font-weight: bold;
+      margin: 0 0 14px 0;
+  }
+  #victories {
+      color: green;
+  
+  }
+  #defeats {
+      color: brown;
+  }
+  
+  #overlay {
+      display: none;
+      position: absolute;
+      width: 100vw;
+      height: 100vh;
+      background-color: #ccc;
+      opacity: 0.5;
+      z-index: 1000; 
+  }

@@ -1,36 +1,86 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <link rel="stylesheet" href="css/style.css">
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TTT</title>
-</head>
-<body> 
-    <h1 class="title">Tic_Tac_Toe</h1>
-    <div class="area_wrapper">
-        <div id="area">
-            <div class="box"></div>
-            <div class="box"></div>
-            <div class="box"></div>
-            <div class="box"></div>
-            <div class="box"></div>
-            <div class="box"></div>
-            <div class="box"></div>
-            <div class="box"></div>
-            <div class="box"></div>
-        </div>
-    </div>
-    <div id="modal-result-wrapper">
-        <div id="overlay">
-            <div id="modal-window">
-                <div id="content">Content</div>
-                <div id="btn-close">Start new Game</div>
-            </div>
-        </div>
-    </div>
+	<meta charset="UTF-8">
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+	<meta name="yandex-verification" content="c98c58ea6ce68aae" />
+	<!-- Yandex.Metrika counter -->
+	<script type="text/javascript" >
+		(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+			m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+		(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
 
-    <script src="script/main.js"></script>
+		ym(55940371, "init", {
+			clickmap:true,
+			trackLinks:true,
+			accurateTrackBounce:true
+		});
+	</script>
+	<noscript><div><img src="https://mc.yandex.ru/watch/55940371" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+	<!-- /Yandex.Metrika counter -->
+	<title>Крестики-нолики</title>
+	<meta name="description" content="Крестики-нолики">
+	<link rel="stylesheet" href="./main.css">
+</head>
+<body>
+	<div id="overlay"></div>
+    <div class="wrapper">
+    	<div class="content">	
+			<h1>Крестики - нолики</h1>
+			<div class="score"><span id="victories">0</span>&nbsp;&nbsp;:&nbsp;&nbsp;<span id="defeats">0</span></div>
+			<div id="area">
+				<div class="box"></div>
+				<div class="box"></div>
+				<div class="box"></div>
+				<div class="box"></div>
+				<div class="box"></div>
+				<div class="box"></div>
+				<div class="box"></div>
+				<div class="box"></div>
+				<div class="box"></div>
+			</div>
+		</div>
+	</div>	
+	<script src="script/main.js" type="text/javascript"></script>	
 </body>
 </html>
+
+
+
+Code refactoring log:
+
+Запретил выделение
+запретил перетаскивание
+запретил добавление больше одного значения в ячейку
+убрал всплывающую панель
+Убрал абсолюты
+убрал линейность решений оппонента
+убрал 9 блоков
+убрал условные ветвления
+убрал пару функций
+сократил кол-во массивов
+сократил кол-во переменных
+сократил кол-во циклов
+----------------------------------------------
+Добавил ИИ
+добавил яндекс-метрику
+добави вебкиты
+добавил полу-прозрачный экран в полном размере по сайту
+добавил счетчик побед 
+добавил ивенты
+добавил подсветку побеителя
+добавил подмножество псевдо-массивов
+добавил свойства HTMLCollection
+добавил удобство перезапуска в один клик 
+----------------------------------------------
+пофиксил сброс дизайна после победы/проигрыша
+пофиксил сброс дизайна при перемещении значения из одной ячейки в другую
+пофиксил зацикливание в 4м цикле
+пофиксил вытекание стиля wrapper -> area
+пофиксил область видимости двух переменных
+пофиксил баг с заменой цвета с черного на коричневый
+----------------------------------------------
+
