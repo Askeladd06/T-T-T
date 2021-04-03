@@ -66,11 +66,11 @@ html {
       margin: 0 0 14px 0;
   }
   #victories {
-      color: green;
+      color: blue;
   
   }
   #defeats {
-      color: brown;
+      color:  red;
   }
   
   #overlay {

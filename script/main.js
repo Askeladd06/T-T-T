@@ -20,7 +20,7 @@ area.addEventListener('click', function(event) {
 	let box = event.target;
 	if (box.innerHTML == '') {
 		box.innerHTML = 'X';
-		box.style.color = 'green';
+		box.style.color = 'blue';
 		check();
 		if (return_empty_boxes().length > 0 && game_over === false) {		
    			fill();
@@ -42,17 +42,17 @@ function fill() {
 			// console.log('Линии: ' + boxes[lines[i][0]].innerHTML + ' - ' + boxes[lines[i][1]].innerHTML + ' - ' + boxes[lines[i][2]].innerHTML);
 			if (boxes[lines[i][0]].innerHTML === '0' && boxes[lines[i][1]].innerHTML === '0' && boxes[lines[i][2]].innerHTML === '') {
 				boxes[lines[i][2]].innerHTML = '0';
-				boxes[lines[i][2]].style.color = 'brown';
+				boxes[lines[i][2]].style.color = 'red';
 				return false;
 			} 
 			if (boxes[lines[i][1]].innerHTML === '0' && boxes[lines[i][2]].innerHTML === '0' && boxes[lines[i][0]].innerHTML === '') {
 				boxes[lines[i][0]].innerHTML = '0';
-				boxes[lines[i][0]].style.color = 'brown';
+				boxes[lines[i][0]].style.color = 'red';
 				return false;
 			} 
 			if (boxes[lines[i][0]].innerHTML === '0' && boxes[lines[i][2]].innerHTML === '0' && boxes[lines[i][1]].innerHTML === '') {
 				boxes[lines[i][1]].innerHTML = '0';
-				boxes[lines[i][1]].style.color = 'brown';
+				boxes[lines[i][1]].style.color = 'red';
 				return false;
 			}
 		}
@@ -62,24 +62,24 @@ function fill() {
 			// console.log('Линии: ' + boxes[lines[i][0]].innerHTML + ' - ' + boxes[lines[i][1]].innerHTML + ' - ' + boxes[lines[i][2]].innerHTML);
 			if (boxes[lines[i][0]].innerHTML === 'X' && boxes[lines[i][1]].innerHTML === 'X' && boxes[lines[i][2]].innerHTML === '') {
 				boxes[lines[i][2]].innerHTML = '0';
-				boxes[lines[i][2]].style.color = 'brown';
+				boxes[lines[i][2]].style.color = 'red';
 				return false;
 			} 
 			if (boxes[lines[i][1]].innerHTML === 'X' && boxes[lines[i][2]].innerHTML === 'X' && boxes[lines[i][0]].innerHTML === '') {
 				boxes[lines[i][0]].innerHTML = '0';
-				boxes[lines[i][0]].style.color = 'brown';
+				boxes[lines[i][0]].style.color = 'red';
 				return false;
 			} 
 			if (boxes[lines[i][0]].innerHTML === 'X' && boxes[lines[i][2]].innerHTML === 'X' && boxes[lines[i][1]].innerHTML === '') {
 				boxes[lines[i][1]].innerHTML = '0';
-				boxes[lines[i][1]].style.color = 'brown';
+				boxes[lines[i][1]].style.color = 'red';
 				return false;
 			}
 		}
 		let empty_boxes = return_empty_boxes();
 		let rand = empty_boxes[Math.floor(Math.random() * empty_boxes.length)];
 		boxes[rand].innerHTML = '0';
-		boxes[rand].style.color = 'brown';
+		boxes[rand].style.color = 'red';
 		return false;
 	}
 }
