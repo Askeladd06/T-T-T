@@ -34,7 +34,7 @@ html {
       margin: 0 0 10px 0;
       font-size: 20px;
       font-weight: normal;
-      color: #444;
+      color: rgb(180, 174, 174);
       letter-spacing: 5px;
       transform: scaleY(1.5);
   }
