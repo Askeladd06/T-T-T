@@ -1,50 +1,134 @@
-const area = document.getElementById('area');
-let move = 0, result = '';
-const content_wrapper = document.getElementById('content');
-const modal_result = document.getElementById('modal-result-wrapper');
-const overlay = document.getElementById('overlay');
-const btn_close = document.getElementById('btn-close');
+let area      = document.getElementById('area'),
+	boxes     = document.getElementsByClassName('box'),
+	overlay   = document.getElementById('overlay'),
+	victories = document.getElementById('victories'),
+	defeats   = document.getElementById('defeats'),
+	count_victories = count_defeats = 0,
+	lines = [
+				[0, 1, 2],
+				[3, 4, 5],
+				[6, 7, 8],
+				[0, 3, 6],
+				[1, 4, 7],
+				[2, 5, 8],
+				[0, 4, 8],
+				[2, 4, 6],
+			],	
+	crosses_win = zeros_win = drawn_game = game_over = false;
 
-area.addEventListener('click', e => {
-    if(e.target.className = 'box') {
-        move % 2 === 0 ? e.target.innerHTML = 'X' : e.target.innerHTML = '0';
-        move++;
-        check();
-    }
-})
-const check = () => {
-    const boxes = document.getElementsByClassName('box');
-    const arr = [
-        [0,1,2],
-        [3,4,5],
-        [6,7,8],
+area.addEventListener('click', function(event) {
+	let box = event.target;
+	if (box.innerHTML == '') {
+		box.innerHTML = 'X';
+		box.style.color = 'green';
+		check();
+		if (return_empty_boxes().length > 0 && game_over === false) {		
+   			fill();
+   			check();
+   		}
+    }    
+});
 
-        [0,3,6], 
-        [1,4,7],
-        [2,5,8],
+overlay.addEventListener('click', function(event) {
+	event.target.style.display = 'none';
+	clear_area();  
+});
 
-        [0,4,8],
-        [2,4,6],
-    ];
-    for(i = 0; i < arr.length; i++) {
-        if (boxes[arr[i][0]].innerHTML == 'X' && boxes[arr[i][1]].innerHTML == 'X' && boxes[arr[i][2]].innerHTML == 'X') {
-            result = 'Крестики';
-            prepare_Result(result);
-        } else if ( boxes[arr[i][0]].innerHTML == '0' && boxes[arr[i][1]].innerHTML == '0' && boxes[arr[i][2]].innerHTML == '0') {
-            result = 'Нолики';
-            prepare_Result(result);
-        }
-    }
+function fill() {	
+	if (return_empty_boxes().length > 0) {
+		// смотрим присутствует ли в линии два нуля, и, если присутствуют,
+		// то закрываем линию, прерываем выполнение функции и выигрываем партию 
+		for (let i = 0; i < lines.length; i++) {
+			// console.log('Линии: ' + boxes[lines[i][0]].innerHTML + ' - ' + boxes[lines[i][1]].innerHTML + ' - ' + boxes[lines[i][2]].innerHTML);
+			if (boxes[lines[i][0]].innerHTML === '0' && boxes[lines[i][1]].innerHTML === '0' && boxes[lines[i][2]].innerHTML === '') {
+				boxes[lines[i][2]].innerHTML = '0';
+				boxes[lines[i][2]].style.color = 'brown';
+				return false;
+			} 
+			if (boxes[lines[i][1]].innerHTML === '0' && boxes[lines[i][2]].innerHTML === '0' && boxes[lines[i][0]].innerHTML === '') {
+				boxes[lines[i][0]].innerHTML = '0';
+				boxes[lines[i][0]].style.color = 'brown';
+				return false;
+			} 
+			if (boxes[lines[i][0]].innerHTML === '0' && boxes[lines[i][2]].innerHTML === '0' && boxes[lines[i][1]].innerHTML === '') {
+				boxes[lines[i][1]].innerHTML = '0';
+				boxes[lines[i][1]].style.color = 'brown';
+				return false;
+			}
+		}
+		// проходимся по массиву линий и, если в первой попавшейся линии есть два икса, 
+		// заполняем пустой бокс нулём и прерываем выполнение функции	
+		for (let i = 0; i < lines.length; i++) {
+			// console.log('Линии: ' + boxes[lines[i][0]].innerHTML + ' - ' + boxes[lines[i][1]].innerHTML + ' - ' + boxes[lines[i][2]].innerHTML);
+			if (boxes[lines[i][0]].innerHTML === 'X' && boxes[lines[i][1]].innerHTML === 'X' && boxes[lines[i][2]].innerHTML === '') {
+				boxes[lines[i][2]].innerHTML = '0';
+				boxes[lines[i][2]].style.color = 'brown';
+				return false;
+			} 
+			if (boxes[lines[i][1]].innerHTML === 'X' && boxes[lines[i][2]].innerHTML === 'X' && boxes[lines[i][0]].innerHTML === '') {
+				boxes[lines[i][0]].innerHTML = '0';
+				boxes[lines[i][0]].style.color = 'brown';
+				return false;
+			} 
+			if (boxes[lines[i][0]].innerHTML === 'X' && boxes[lines[i][2]].innerHTML === 'X' && boxes[lines[i][1]].innerHTML === '') {
+				boxes[lines[i][1]].innerHTML = '0';
+				boxes[lines[i][1]].style.color = 'brown';
+				return false;
+			}
+		}
+		let empty_boxes = return_empty_boxes();
+		let rand = empty_boxes[Math.floor(Math.random() * empty_boxes.length)];
+		boxes[rand].innerHTML = '0';
+		boxes[rand].style.color = 'brown';
+		return false;
+	}
 }
 
-const prepare_Result = winner => {
-    content_wrapper.innerHTML = `Победили ${winner} !`;
-    modal_result.style.display = 'block';
-}
-const close_Modal = () => {
-    modal_result.style.display = 'none';
-    location.reload();
+function return_empty_boxes() {
+	let empty_boxes = [];
+	for (let i = 0; i < boxes.length; i++) {
+		if (boxes[i].innerHTML == '') empty_boxes.push(i);		 
+	}	
+	return empty_boxes;	
 }
 
-overlay.addEventListener('click', close_Modal);
-btn_close.addEventListener('click', close_Modal);
+function clear_area() {
+	for (let i = 0; i < boxes.length; i++) {
+		boxes[i].innerHTML = '';
+		boxes[i].style.backgroundColor = 'black';
+	}
+	let crosses_win = zeros_win = drawn_game = game_over = false;
+}
+
+function check() {		
+	for (let i = 0; i < lines.length; i++) {
+		if (boxes[lines[i][0]].innerHTML === 'X' && boxes[lines[i][1]].innerHTML === 'X' && boxes[lines[i][2]].innerHTML === 'X') {
+			// Победили крестики!
+			boxes[lines[i][0]].style.backgroundColor = boxes[lines[i][1]].style.backgroundColor = boxes[lines[i][2]].style.backgroundColor = '#f00';
+			overlay.style.display  = 'block';
+			drawn_game  = zeros_win = false;
+			crosses_win = true;
+			victories.innerText = ++count_victories;
+			game_over   = true;
+			return false;
+		} else if (boxes[lines[i][0]].innerHTML === '0' && boxes[lines[i][1]].innerHTML === '0' && boxes[lines[i][2]].innerHTML === '0') {
+			// Победили нолики!
+			boxes[lines[i][0]].style.backgroundColor = boxes[lines[i][1]].style.backgroundColor = boxes[lines[i][2]].style.backgroundColor = '#f00';
+			boxes[lines[i][0]].style.color = boxes[lines[i][1]].style.color = boxes[lines[i][2]].style.color = '#ddd';
+			overlay.style.display    = 'block';
+			drawn_game = crosses_win = false;
+			zeros_win  = true;
+			defeats.innerText = ++count_defeats;
+			game_over  = true;
+			return false;
+		}	
+	}
+	// if (return_empty_boxes().length === 0 && crosses_win === false && zeros_win === false) {
+	if (return_empty_boxes().length === 0) {
+		// alert ('Ничья!');
+		overlay.style.display   = 'block';
+		crosses_win = zeros_win = false;
+		drawn_game  = game_over = true;
+		return false;
+	}
+}
