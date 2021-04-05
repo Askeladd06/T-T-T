@@ -8,12 +8,12 @@
 {repository} — репозиторий где хранятся картинки;
 {branch} — ветка репозитория;
 {path} — путь к месту нахождения картинки. -->
+<!-- 
+[![tic-tac-toe](https://img.shields.io/badge/-tic_tac_toe-black?style=for-the-badge&logo=&logoColor=blue)](https://tic-tac-toe-by-askeladd.netlify.app/) -->
 
-<!-- [![tic-tac-toe](https://img.shields.io/badge/-tic_tac_toe-black?style=for-the-badge&logo=&logoColor=blue)](https://tic-tac-toe-by-askeladd.netlify.app/) -->
 
 
-
-![Header](https://github.com/Askeladd06/T-T-T/blob/main/images/prev1.PNG)
+[![Header](https://github.com/Askeladd06/T-T-T/blob/main/images/prev1.PNG)](https://tic-tac-toe-by-askeladd.netlify.app/)
 
 
 Code refactoring log:
