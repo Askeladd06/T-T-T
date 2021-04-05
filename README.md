@@ -13,7 +13,7 @@
 
 
 
-![Header](https://github.com/Askeladd06/T-T-T/tree/main/img)
+<!-- ![Header](https://github.com/Askeladd06/T-T-T/tree/main/img) -->
 
 
 Code refactoring log:
