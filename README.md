@@ -8,8 +8,6 @@
 {repository} — репозиторий где хранятся картинки;
 {branch} — ветка репозитория;
 {path} — путь к месту нахождения картинки. -->
-<!-- 
-[![tic-tac-toe](https://img.shields.io/badge/-tic_tac_toe-black?style=for-the-badge&logo=&logoColor=blue)](https://tic-tac-toe-by-askeladd.netlify.app/) -->
 
 
 ### Tic_Tac_Toe (clickable)
