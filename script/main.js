@@ -59,7 +59,6 @@ function fill() {
 		// проходимся по массиву линий и, если в первой попавшейся линии есть два икса, 
 		// заполняем пустой бокс нулём и прерываем выполнение функции	
 		for (let i = 0; i < lines.length; i++) {
-			// console.log('Линии: ' + boxes[lines[i][0]].innerHTML + ' - ' + boxes[lines[i][1]].innerHTML + ' - ' + boxes[lines[i][2]].innerHTML);
 			if (boxes[lines[i][0]].innerHTML === 'X' && boxes[lines[i][1]].innerHTML === 'X' && boxes[lines[i][2]].innerHTML === '') {
 				boxes[lines[i][2]].innerHTML = '0';
 				boxes[lines[i][2]].style.color = 'red';
@@ -103,7 +102,6 @@ function clear_area() {
 function check() {		
 	for (let i = 0; i < lines.length; i++) {
 		if (boxes[lines[i][0]].innerHTML === 'X' && boxes[lines[i][1]].innerHTML === 'X' && boxes[lines[i][2]].innerHTML === 'X') {
-			// Победили крестики!
 			boxes[lines[i][0]].style.backgroundColor = boxes[lines[i][1]].style.backgroundColor = boxes[lines[i][2]].style.backgroundColor = '#f00';
 			overlay.style.display  = 'block';
 			drawn_game  = zeros_win = false;
@@ -112,7 +110,6 @@ function check() {
 			game_over   = true;
 			return false;
 		} else if (boxes[lines[i][0]].innerHTML === '0' && boxes[lines[i][1]].innerHTML === '0' && boxes[lines[i][2]].innerHTML === '0') {
-			// Победили нолики!
 			boxes[lines[i][0]].style.backgroundColor = boxes[lines[i][1]].style.backgroundColor = boxes[lines[i][2]].style.backgroundColor = '#f00';
 			boxes[lines[i][0]].style.color = boxes[lines[i][1]].style.color = boxes[lines[i][2]].style.color = '#ddd';
 			overlay.style.display    = 'block';
