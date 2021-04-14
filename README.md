@@ -2,9 +2,7 @@
 
 ![Иллюстрация к проекту](https://github.com/jon/coolproject/raw/master/image/image.png)
 
-![Иллюстрация к проекту](https://github.com/jon/coolproject/raw/master/image/image.png)
-
-![Image alt](https://github.com/Askeladd06/T-T-T/blob/main/images/frame.png)
+![Image alt](https://github.com/{username}/{repository}/raw/{branch}/{path}/image.png)
 
 {Askeladd06} — ваш ник на ГитХабе;
 {repository} — репозиторий где хранятся картинки;
@@ -51,3 +49,5 @@ ___
 пофиксил баг с заменой цвета с черного на коричневый  
 ____
 
+
+[![testing](https://github.com/Askeladd06/T-T-T/blob/main/images/prev1.PNG)](https://tic-tac-toe-by-askeladd.netlify.app/)
