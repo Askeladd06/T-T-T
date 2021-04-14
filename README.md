@@ -2,7 +2,9 @@
 
 ![Иллюстрация к проекту](https://github.com/jon/coolproject/raw/master/image/image.png)
 
-![Image alt](https://github.com/{username}/{repository}/raw/{branch}/{path}/image.png)
+![Иллюстрация к проекту](https://github.com/jon/coolproject/raw/master/image/image.png)
+
+![Image alt](https://github.com/Askeladd06/T-T-T/blob/main/images/frame.png)
 
 {Askeladd06} — ваш ник на ГитХабе;
 {repository} — репозиторий где хранятся картинки;
