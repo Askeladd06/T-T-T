@@ -52,3 +52,4 @@ ____
 [![test](https://github.com/Askeladd06/T-T-T/blob/main/images/QR_code.png)](https://tic-tac-toe-by-askeladd.netlify.app/)
 
 
+
